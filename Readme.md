@@ -15,6 +15,7 @@ window.tool = {
 h = hook("window.tool.calc")
 
 h.fake(()=>"替换原函数", false) // 以后再执行 tool.calc() 就变成执行 ()=>"替换原函数" 了
+h.fake((...args)=>console.log(args), false)  // 可以得到传入被 hook 函数的参数
 
 h.fakeArg("假参数1", "假参数2", "...") // 以后再执行 tool.calc() 就变成执行 tool.calc("假参数1", "假参数2", "...") 了
 
