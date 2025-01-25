@@ -153,6 +153,7 @@ function methodHook() {
         h.exports = {
             // 如果 fake 和 fakeArg 方法需要访问 Hook 实例的属性（如 fn_real、fn_name 等），那么使用 bind 是必要的。
             fake: h.fake.bind(h),
+            fn_puppet: h.fn_puppet,
             fakeArg: h.fakeArg.bind(h),
             fakeArgFn: h.fakeArgFn.bind(h),
             fakeRst: h.fakeRst.bind(h),
@@ -165,7 +166,6 @@ function methodHook() {
                 fn_name: fn_name,
                 fn_object_name: fn_object_name,
                 fn_object: fn_object,
-                fn_puppet: h.fn_puppet,
                 fakeArgFn: h.fake_arg_fn,
                 fakeRstFn: h.fake_rst_fn
             }
@@ -220,7 +220,8 @@ function methodHook() {
             return 'function () { [native code] }';
         };
 
-        this.fn_puppet = this.exports.fn_puppet = puppet;
+        this.fn_puppet = puppet;
+        this.exports.fn_puppet = puppet;
         this.fn_object[this.fn_name] = puppet;
 
         return this.exports;
