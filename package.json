@@ -1,0 +1,12 @@
+{
+  "name": "js-reverse-env",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "dependencies": {
+    "crypto-js": "^4.2.0",
+    "sm-crypto": "^0.3.13"
+  }
+}
